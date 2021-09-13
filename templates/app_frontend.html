@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  	<link rel="stylesheet" href="{{ url_for('static', filename='asset_code.css') }}">
+	</head>
+	<body>
+		<h1></h1>
+			<form action="http://localhost:5000/random_verb" method="POST">
+				<div class="text-center">
+					<button type="submit" class=cv_btn>Random Verb Button</button>
+				</div>
+			</form>
+			<br>
+			<br>
+			<div class="text-center">
+				<font size="+12">
+				Your verb of the day is: {{ random_verb }}!
+				</font>
+			</div>
+	</body>
+</html>
