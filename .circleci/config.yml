@@ -1,9 +1,13 @@
 version: 2.1
 
+# Defines which orb packages are to be included for configuration
 orbs:
   python: circleci/python@1.2
   heroku: circleci/heroku@0.0.10
 
+# Orchestrates job run sequence, order, and for which git branches to run on. In this case,
+# I used the heroku/deploy-via-git orb rather than creating a deployment job in order to keep
+# the config file succinct.
 workflows:
   button-test:
     jobs:
@@ -15,7 +19,9 @@ workflows:
             branches:
               only: master
 
-
+# Defines which jobs are to be run for this project. In this case, only the build-and-test job
+# needed defining. For testing I run a python command to run a unit test on the app_test.py file
+# which was created using unittest.
 jobs:
   build-and-test:
     docker:
